@@ -1,8 +1,9 @@
 body{
     padding: 5px;
     text-align: center;
+
 }
-.container{
+.my--container{
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);

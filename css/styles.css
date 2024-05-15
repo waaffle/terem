@@ -117,7 +117,7 @@ text-decoration: underline;
 
 
 @media (max-width: 480px){
-    .container{
+    .my--container{
         display: grid;
         column-gap: 0;
         grid-template-columns: 1fr;

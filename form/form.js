@@ -6,7 +6,7 @@ async function handleSubmit(e){
     e.preventDefault();
     let jsonData = getFormData();
     document.querySelector(".result").innerText = jsonData;
-    const data = await fetchData(jsonData);
+    const data = await getData(jsonData);
     alert(`Данные получены: ${data}`);
 }
 
@@ -28,14 +28,14 @@ function getFormData(){
     return jsonData;
 }
 
-function fetchData(jsonData){
-    return getData({
+function getData(jsonData){
+    return fetchData({
         method: "GET",
         headers: { "Content-Type": "application/json" },
         body: jsonData,
     })
 }
 
-function getData (request){
+function fetchData (request){
     return request.body;
 }

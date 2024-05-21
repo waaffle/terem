@@ -33,7 +33,7 @@ const replace = (buttonSelector, firstBlockSelector, secondBlockSelector) => {
 }
 
 const showModal = () => {
-    var modal = document.querySelector('.my--modal');
+    let modal = document.querySelector('.my--modal');
     modal.classList.add("open");
 }
 

@@ -22,11 +22,14 @@ body{
 .group1{
     display: none;
     grid-column: span 3;
-
 }
 
 .group1--open{
     display: block;
+}
+
+.title{
+    margin-bottom: 0;
 }
 
 .group2--block1{

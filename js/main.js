@@ -1,58 +1,52 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded", () => {
+const button1 = document.querySelector('.btn-warning'),
+    button2 = document.querySelector('.btn-success'),
+    closeButton = document.querySelector('.close--button'),
+    group1 = document.querySelector('.group1'),
+    container = document.querySelector('.my--container'),
+    block1 = document.querySelector('.group2--block1'),
+    block2 = document.querySelector('.group2--block2'),
+    modal = document.querySelector('.my--modal'),
+    modalInner = document.querySelector('.modal--inner');
 
-    setTimeout(showModal, 400);
-    hide('.btn-warning', '.group1');
-    replace('.btn-success', '.group2--block1', '.group2--block2');
-    closeModal('.close--button','.my--modal', '.modal--inner' )
- })
+setTimeout(showModal, 400);
 
 
-const hide = (buttonSelector, blockSelector) => {
-    document.querySelector(buttonSelector).addEventListener("click",
-    function()
-    {
-     document.querySelector(blockSelector).classList.toggle("group1--open")
-    })
-}
+button1.addEventListener("click", () =>
+{
+    group1.classList.toggle("group1--open")
+})
 
-const replace = (buttonSelector, firstBlockSelector, secondBlockSelector) => {
-    const button = document.querySelector(buttonSelector),
-    block1 = document.querySelector(firstBlockSelector),
-    block2 = document.querySelector(secondBlockSelector);
-    button.addEventListener('click', () => {
-        if(block1.nextElementSibling === block2){
-            block1.parentNode.insertBefore(block2, block1)
-        }
-        else{
-            block1.parentNode.insertBefore(block1, block2)
-        }
-    })
+
+button2.addEventListener('click', () => {
+    if(block1.nextElementSibling === block2){
+        container.insertBefore(block2, block1)
+    }
+    else{
+        container.insertBefore(block1, block2)
+    }
+})
     
-}
 
-const showModal = () => {
-    let modal = document.querySelector('.my--modal');
+function showModal() {
     modal.classList.add("open");
 }
 
-const closeModal = (buttonSelector, modalSelector, modalInnerSelector) => {
-    const button = document.querySelector(buttonSelector),
-    modal = document.querySelector(modalSelector),
-    modalInner = document.querySelector(modalInnerSelector);
+closeButton.addEventListener('click', () => {
+    modal.classList.toggle('open');
+})
 
-    button.addEventListener('click', () => {
-        modal.classList.remove('open');
-    })
 
-    modalInner.addEventListener('click', (event) => {
-        event._isClick = true;
-    })
+//для закрытия модального окна кликом по фону
 
-    modal.addEventListener('click', (event) => {
-        if (event._isClick) return;
-        event.currentTarget.classList.remove('open');
-    })
-}
+modalInner.addEventListener('click', (event) => {
+    event._isClick = true;
+})
+
+modal.addEventListener('click', (event) => {
+    if (event._isClick) return;
+    event.currentTarget.classList.remove('open');
+})
+
 

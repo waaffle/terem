@@ -1,28 +1,18 @@
 const form = document.querySelector(".myForm");
 
-form.addEventListener("submit", handleSubmit);
-
 function handleSubmit(e){
     e.preventDefault();
     const form = document.querySelector('.myForm');
     const formData = new FormData(form);
-    const formObject = {};
 
-    formData.forEach((value, key) => {
-        formObject[key] = value;
-    });
-
+    const formObject = Object.fromEntries(formData.entries());
     const jsonString = JSON.stringify(formObject);
 
     document.querySelector(".result").innerText  = jsonString;
+    const url = './handler.js?' + new URLSearchParams(formData);
 
-    //const queryString = new URLSearchParams(formObject).toString();
-
-    fetch("./handler.js", {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+    fetch(url, {
+        method: 'GET'
     })
     .then(response => {
         if (!response.ok) {
@@ -33,6 +23,10 @@ function handleSubmit(e){
     .then(data => {
         alert (data);
     });
+
+    form.reset();
 }
+
+form.addEventListener("submit", handleSubmit);
 
 

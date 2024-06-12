@@ -1,10 +1,13 @@
 body{
     padding: 5px;
     text-align: center;
-
 }
+
 .my--container{
-    margin-bottom: 20px;
+    height: auto;
+    width: 100%;
+    display: block;
+    overflow: auto hidden;
 }
 
 .block{
@@ -16,12 +19,8 @@ body{
 }
 
 .group1{
-    display: none;
-    margin-bottom: 5px;
-}
-
-.group1--open{
     display: block;
+    margin-bottom: 5px;
 }
 
 .title{
@@ -38,11 +37,10 @@ body{
     background-color: #fda7a7;
     flex-grow: 1;
     margin-right: 5px;
-    order: 0;
 }
 
-.block1--reverse{
-    order: 2;
+.block2--reverse{
+    order: -1;
 }
 
 .group2--block2{
@@ -50,19 +48,17 @@ body{
     border-style: dashed;
     flex-grow: 1;
     margin-right: 5px;
-    order: 1;
 }
 
 .group2--block3{
     background-color: #a7f9fd; 
     flex-grow: 1;
-    order: 3;
 }
 
 .group3{
     display: flex;
     justify-content: space-between;
-
+    margin-bottom: 20px;
 }
 
 .small{
@@ -77,6 +73,7 @@ body{
 }
 
 .my--modal{
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -86,15 +83,6 @@ body{
     background-color: rgba(0,0,0,0.3);
     display: flex;
     align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .4s, visibility .4s;
-      
-}
-
-.my--modal.open{
-    visibility: visible;
-    opacity: 1;
 }
 
 .modal--inner{
@@ -110,12 +98,11 @@ body{
     align-items: center;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     position: relative;
-    transition: transform .6s;
-    transform: scale(0);
 }
 
-.my--modal.open .modal--inner{
-    transform: scale(1);
+
+.hide{
+    display: none;
 }
 
 .close--button{
@@ -133,10 +120,15 @@ body{
 
 }
 
+.link{
+    display: block;
+    margin-bottom: 10px;
+}
 
-a:hover {
+.link:hover {
 text-decoration: underline;
 }
+
   
 
 

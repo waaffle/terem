@@ -8,15 +8,15 @@ const button1 = document.querySelector('.btn-warning'),
     modalInner = document.querySelector('.modal--inner');
 
 button1.addEventListener("click", () => {
-    group1.classList.toggle("group1--open")
+    group1.classList.toggle("hide")
 })
 
 button2.addEventListener('click', () => {
-    block1.classList.toggle("block1--reverse")
+    block2.classList.toggle("block2--reverse")
 })  
 
 closeButton.addEventListener('click', () => {
-    modal.classList.toggle('open');
+    modal.classList.toggle('hide');
 })
 
 //для закрытия модального окна кликом по фону
@@ -27,7 +27,7 @@ modalInner.addEventListener('click', (event) => {
 
 modal.addEventListener('click', (event) => {
     if (event._isClick) return;
-    event.currentTarget.classList.remove('open');
+    event.currentTarget.classList.add('hide');
 })
 
 
